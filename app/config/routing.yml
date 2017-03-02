@@ -1,0 +1,7 @@
+app_githubstars:
+    resource: "@BcGitHubStarsBundle/Resources/config/routing.yml"
+app_bcerrorpages:
+    resource: "@BcErrorPagesBundle/Resources/config/routing_dev.yml"
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

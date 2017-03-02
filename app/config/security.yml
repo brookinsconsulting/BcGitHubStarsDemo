@@ -1,0 +1,45 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+
+    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory:
+                users:
+                    demo:
+                        password: $2y$12$HmUrTWzJC1PEJvR.HI17COcjHDNa/HEpYG/cKOBiVaLwWt15HcSnC
+                        roles: 'ROLE_ADMIN'
+                    admin:
+                        password: $2y$12$h3Q3phyRyC8MVFiLv1aNMuU5fHhUCNFdRsxfMOZf6dTgiX14MRw1q
+                        roles: 'ROLE_ADMIN'
+
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+
+            http_basic: ~
+            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: ~
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+        default:
+            anonymous: ~
+            http_basic: ~
+    access_control:
+        - { path: ^/githubstars, roles: ROLE_ADMIN }
+        # require ROLE_ADMIN for /admin*
+        # - { path: ^/, roles: ROLE_ADMIN }
+        - { path: ^/githubstars, roles: ROLE_ADMIN }
+        - { path: ^/repository, roles: ROLE_ADMIN }
