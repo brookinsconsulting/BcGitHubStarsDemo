@@ -70,7 +70,8 @@
         "knplabs/knp-menu-bundle": "^2.0",
         "fortawesome/font-awesome": "~4.0",
         "brookinsconsulting/bcerrorpagesbundle": "dev-master",
-        "symfony/filesystem": "^3.2"
+        "symfony/filesystem": "^3.2",
+        "brookinsconsulting/bcgithubstarsbundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
